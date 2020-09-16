@@ -33,40 +33,6 @@ public class MypageViewHandler {
             e.printStackTrace();
         }
     }
-    /*
-    @StreamListener(KafkaProcessor.INPUT)
-    public void whenAllocated_then_CREATE_2 (@Payload Allocated allocated) {
-        try {
-            if (allocated.isMe()) {
-                // view 객체 생성
-                Mypage mypage = new Mypage();
-                // view 객체에 이벤트의 Value 를 set 함
-                mypage.setRewardId(allocated.getId());
-                mypage.setRewardStatus(allocated.getStatus());
-                // view 레파지 토리에 save
-                mypageRepository.save(mypage);
-            }
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-    @StreamListener(KafkaProcessor.INPUT)
-    public void whenIssued_then_CREATE_3 (@Payload Issued issued) {
-        try {
-            if (issued.isMe()) {
-                // view 객체 생성
-                Mypage mypage = new Mypage();
-                // view 객체에 이벤트의 Value 를 set 함
-                mypage.setRewardId(issued.getId());
-                mypage.setRewardStatus(issued.getStatus());
-                // view 레파지 토리에 save
-                mypageRepository.save(mypage);
-            }
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-    */
 
     @StreamListener(KafkaProcessor.INPUT)
     public void whenAllocated_then_UPDATE_1(@Payload Allocated allocated) {
