@@ -74,6 +74,22 @@ phases:
                   app: $_PROJECT_NAME
               spec:
                 containers:
+                  - env:
+                    - name: DB_URL
+                      valueFrom:
+                        configMapKeyRef:
+                          name: CONFIG_NAME
+                          key: DB_URL
+                    - name: DB_USER
+                      valueFrom:
+                        configMapKeyRef:
+                          name: CONFIG_NAME
+                          key: DB_USER
+                    - name : DB_PASSWORD
+                      valueFrom:
+                        configMapKeyRef:
+                          name: CONFIG_NAME
+                          key: DB_USER
                   - name: $_PROJECT_NAME
                     image: $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$_DOCKER_IMAGE_NAME:$CODEBUILD_RESOLVED_SOURCE_VERSION
                     ports:
@@ -97,10 +113,8 @@ phases:
                     resources:
                       requests:
                         cpu: 500m
-                        memory: 800Mi
                       limits:
-                        cpu: 500m
-                        memory: 800Mi
+                        cpu: 800m
                     volumeMounts:
                     - mountPath: "/mnt/aws"
                       name: volume
