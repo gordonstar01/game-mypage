@@ -3,7 +3,7 @@ version: 0.2
 env:
   variables:
     _PROJECT_NAME: "game-mypage"
-    _DOCKER_IMAGE_NAME: "admin06-mypage" 
+    _DOCKER_IMAGE_NAME: "admin06-mypage"
 phases:
   install:
     runtime-versions:
@@ -96,11 +96,11 @@ phases:
                       failureThreshold: 5
                     resources:
                       requests:
-                        cpu: 100m
-                        memory: 128Mi
+                        cpu: 500m
+                        memory: 400Mi
                       limits:
-                        cpu: 250m
-                        memory: 256Mi
+                        cpu: 500m
+                        memory: 400Mi
                     volumeMounts:
                     - mountPath: "/mnt/aws"
                       name: volume
